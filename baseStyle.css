@@ -5,13 +5,16 @@ body  {
 
 .name {
   position: sticky;
-  width: 50%;
+  width: 90%;
   height: 100%;
+  padding-left: 5%;
   text-align: left;
   font-size: 20px;
 }
 .navbar {
   position: sticky;
   text-align: left;
+  width: 90%;
+  padding-left: 5%;
 
 }
