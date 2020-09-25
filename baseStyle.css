@@ -5,48 +5,47 @@ body  {
   padding-right: 2.5%;
 }
 
-.name {
+p {
+  position: sticky;
+  text-align: left;
+  font-size: 20px;
+}
+
+h1 {
   position: sticky;
   width: 90%;
   height: 100%;
   text-align: left;
 }
-.navbar {
-  position: sticky;
-  text-align: left;
-  width: 90%;
 
-}
-li {
-  float: left;
-}
-li a {
-  display: block;
-  padding: 8px;
-  background-color: rgb(255,255,255);
-}
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  background-color: rgb(255,255,255);
+}
+
 li a:hover {
   background-color: rgb(0,180,0);
 }
-p {
-  position: sticky;
-  text-align: left;
-  font-size: 20px;
-}
+
 .projectLink a {
   font-weight: bold;
   font-size: 20px;
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+
 .intext a:visited {
   color: rgb(6, 69, 173);
-}
-h2 {
 }
