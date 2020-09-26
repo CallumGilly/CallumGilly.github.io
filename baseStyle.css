@@ -19,35 +19,6 @@ h1 {
   text-align: left;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  padding: 8px;
-  background-color: rgb(255,255,255);
-}
-
-li a:hover {
-  background-color: rgb(9, 92, 9);
-  color: white;
-}
-
-.projectLink a {
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration: none;
-  color: rgb(42, 78, 22);
-}
-
 .intext a:visited {
   color: rgb(6, 69, 173);
 }
