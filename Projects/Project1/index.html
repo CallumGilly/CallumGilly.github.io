@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title> Callums Web Page </title>
-    <script src="script.js" charset="utf-8"></script>
   </head>
   <body>
     <link rel="stylesheet" href="../../navbar.css" type="text/css"></link>
@@ -13,7 +12,30 @@
       </ul>
     </div>
     <hr>
-    <input type="text" name="random" value="Look in the console" readonly></input>
-    <button type="button" name="button" onclick="buttonPressed()">Press me</button>
+    <div>
+    <script src="../../libraries/p5.js"></script>
+  	<script src="../../libraries/p5.dom.js"></script>
+  	<script src="../../libraries/p5.sound.js"></script>
+    <script src="script.js" charset="utf-8"></script>
+    </div>
+    <div>
+      <button type="button" name="button" onclick="clean()">Reset Canvas</button>
+      <div>
+        <label for="x">X Position:</lable><input type="number" id="x"  placeholder="X"></input>
+        <label for="y">Y Position:</label><input type="number" id="y" placeholder="Y"></input>
+        <label for="w">Width:</label><input type="number" id="w" placeholder="W"></input>
+        <label for="h">Height:</label><input type="number" id="h" placeholder="H"></input>
+      </div>
+      <div>
+        <label for="BackColour">Main colour:</label><input type="color" id='BackColour'></input>
+        <label for="StrokeColour">Stroke colour:</label><input type="color" id='StrokeColour'></input>
+      </div>
+      <button type="button" name="button" onclick="rectang()">Make rectangle</button>
+    </div>
+    <style>
+    input[type=number]{
+      width: 40px;
+    }
+    </style>
   </body>
 </html>
