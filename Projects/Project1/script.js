@@ -14,9 +14,9 @@ function getData() {
 function clean() {
   background('#CCC');
 }
-function circ() {
+function ell() {
   getData();
-  console.log('circl');
+  ellipseMode(CORNER)
   ellipse(document.getElementById("x").value,
     document.getElementById("y").value,
     document.getElementById("w").value,
@@ -24,7 +24,6 @@ function circ() {
 }
 function rectang() {
   getData();
-  console.log('rect');
   rect(document.getElementById("x").value,
     document.getElementById("y").value,
     document.getElementById("w").value,
