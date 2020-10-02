@@ -12,6 +12,7 @@ function clean() {
 function rectang() {
   fill(document.getElementById("BackColour").value);
   stroke(document.getElementById("StrokeColour").value);
+  strokeWeight(document.getElementById("SW").value);
   rect(document.getElementById("x").value,
     document.getElementById("y").value,
     document.getElementById("w").value,
