@@ -12,9 +12,11 @@ class ball {
   }
   moveBall(xWall,yWall) {
     if (this.x >= xWall - 25 || this.x <= 25) {
-      this.xVector *= (Math.random() + 0.5) * -1;
+      this.xVector *= (Math.random() + 0.7) * -1;
       if (this.xVector > 1.5) {
         this.xVector = 1.45;
+      } else if (this.x) {
+
       }
     }
     if (this.y >= yWall - 25 || this.y <= 25) {
