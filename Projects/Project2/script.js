@@ -24,5 +24,7 @@ function buttonPressed() {
       carPark[y][x] = reg;
     }
   }
-  document.getElementById('outer').innerHTML = JSON.stringify(carPark, null, 6);
+  for (var i = 0; i < carPark.length; i++) {
+    document.getElementById(i+1).innerHTML = JSON.stringify(carPark[i], null, 6);
+  }
 }
