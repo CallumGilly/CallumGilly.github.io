@@ -20,7 +20,7 @@ function buttonPressed() {
   } else {
     if (carPark[y][x] != null) {
       window.alert('Space taken');
-    }else {
+    } else {
       carPark[y][x] = reg;
     }
   }
