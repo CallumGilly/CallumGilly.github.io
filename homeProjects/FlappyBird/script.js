@@ -6,6 +6,7 @@ class birdy {
     this.upVelocity = 1;
     this.gravity = 1.016;
     this.speed = 0;
+    this.speedMultiplier = 1.75;
   }
   update() {
     fill(0,0,0);
@@ -18,10 +19,10 @@ class birdy {
     if (this.speed < 2 || this.speed > -2) {
       this.speed += this.gravity - this.upVelocity;
     }
-    if (this.y + this.speed < 0 || this.y + this.speed > 400){
+    if (this.y + this.speed < -2 || this.y + this.speed > 402){
       this.speed = 0;
     }else {
-      this.y += this.speed;
+      this.y += this.speed  * this.speedMultiplier;
     }
     //Draw
     rect(this.x,this.y,25,25);
