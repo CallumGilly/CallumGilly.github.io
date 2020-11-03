@@ -49,7 +49,11 @@ class birdy {
     this.speed = -1.8;
   }
 }
-
+class pipe {
+  constructor (position) {
+    this.x = 1200 + (100 * position)
+  }
+}
 
 var bird;
 function setup() {
