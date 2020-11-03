@@ -11,7 +11,7 @@ class birdy {
     //Consts
     const grav = 1.016;
     const speedMultiplier = 1.75;
-    
+
     //go down
     if (this.upVelocity > 1.01) {
       this.upVelocity -= 0.055;
@@ -38,6 +38,8 @@ class birdy {
       }
     }
     this.ylast = this.y;
+  }
+  draw() {
     //Draw
     fill(0,0,0);
     rect(this.x,this.y,25,25);
@@ -47,6 +49,8 @@ class birdy {
     this.speed = -1.8;
   }
 }
+
+
 var bird;
 function setup() {
   createCanvas(1200, 400);
@@ -56,6 +60,7 @@ function setup() {
 function draw() {
   background(220);
   bird.speeds();
+  bird.draw();
 }
 function keyPressed() {
   if (keyCode == 32) {
