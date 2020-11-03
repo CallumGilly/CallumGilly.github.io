@@ -4,13 +4,14 @@ class birdy {
     this.x = 10;
     this.y = displayHeight/4;
     this.upVelocity = 1;
-    this.gravity = 1.016;
     this.speed = 0;
-    this.speedMultiplier = 1.75;
     this.ylast = 0;
   }
   speeds() {
-    fill(0,0,0);
+    //Consts
+    const grav = 1.016;
+    const speedMultiplier = 1.75;
+    
     //go down
     if (this.upVelocity > 1.01) {
       this.upVelocity -= 0.055;
@@ -18,26 +19,27 @@ class birdy {
 
     //gravity
     if (this.speed < 2 || this.speed > -2) {
-      this.speed += this.gravity - this.upVelocity;
+      this.speed += grav - this.upVelocity;
     }
 
-    //Limit speeds and adding multipires if limits are not needed
+    //Limit speeds and adding multipier if limits are not needed
     if (this.y + this.speed < -2 || this.y + this.speed > 402){
       this.speed = 0;
     }else {
-      this.y += this.speed  * this.speedMultiplier;
+      this.y += this.speed  * speedMultiplier;
     }
 
     //Keep the bird from getting stuck (IDK - needs it)
     if (this.y == this.ylast) {
       if (this.y < 10) {
-        this.y = 1;
+        this.y = 0;
       }else {
-        this.y = 400;
+        this.y = 402;
       }
     }
     this.ylast = this.y;
     //Draw
+    fill(0,0,0);
     rect(this.x,this.y,25,25);
   }
   jump() {
