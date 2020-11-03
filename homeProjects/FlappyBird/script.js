@@ -7,8 +7,9 @@ class birdy {
     this.gravity = 1.016;
     this.speed = 0;
     this.speedMultiplier = 1.75;
+    this.ylast = 0;
   }
-  update() {
+  speeds() {
     fill(0,0,0);
     //go down
     if (this.upVelocity > 1.01) {
@@ -19,11 +20,23 @@ class birdy {
     if (this.speed < 2 || this.speed > -2) {
       this.speed += this.gravity - this.upVelocity;
     }
+
+    //Limit speeds and adding multipires if limits are not needed
     if (this.y + this.speed < -2 || this.y + this.speed > 402){
       this.speed = 0;
     }else {
       this.y += this.speed  * this.speedMultiplier;
     }
+
+    //Keep the bird from getting stuck (IDK - needs it)
+    if (this.y == this.ylast) {
+      if (this.y < 10) {
+        this.y = 1;
+      }else {
+        this.y = 400;
+      }
+    }
+    this.ylast = this.y;
     //Draw
     rect(this.x,this.y,25,25);
   }
@@ -40,7 +53,7 @@ function setup() {
 
 function draw() {
   background(220);
-  bird.update();
+  bird.speeds();
 }
 function keyPressed() {
   if (keyCode == 32) {
