@@ -66,7 +66,7 @@ class pipe {
     }
     while(!(proposedHeight < 100 || proposedHeight > this.frameY - 200));
     this.height = proposedHeight;
-    this.space = (Math.floor(Math.random() * 60)+50)
+    this.space = (Math.floor(Math.random() * 60)+130)
   }
   drawPipe() {
     fill(0,255,30);
@@ -74,7 +74,7 @@ class pipe {
     rect(this.x,this.height + this.space,50,this.frameY);
   }
   update() {
-    this.x -= 1;
+    this.x -= 2;
   }
 }
 
