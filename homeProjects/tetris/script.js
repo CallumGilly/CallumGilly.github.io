@@ -8,6 +8,7 @@ function draw_board() {
   for (var x = 0; x < board.length; x++) {
     for (var y = 0; y < board[x].length; y++) {
       stroke(200,200,200);
+      //If its negative its falling
       //Colours:
       //null = black
       //1 = Light blue - 4 long line Line
@@ -17,7 +18,7 @@ function draw_board() {
       //5 = Pink - T
       //6 - Yellow - Square
       //7 - Green - S
-      switch (board[x][y]) {
+      switch (Math.abs(board[x][y])) {
         case null:
           fill(0,0,0);
           break;
@@ -43,13 +44,35 @@ function draw_board() {
           fill(0, 204, 0);
           break;
         default:
-          fill(255);
+          fill(0);
       }
       rect(square_size+x*square_size,square_size+y*square_size,square_size,square_size);
     }
   }
 }
+function move_pieces() {
+  var new_board = [];
+  for (var x = 0; x < boardX; x++) {
+    temp = [];
+    for (var y = 0; y < boardY; y++) {
+      temp.push(null);
+    }
+    new_board.push(temp);
+  }
+  for (var myX = 0; myX < boardX; myX++) {
+    for (var myY = 0; myY < boardY; myY++) {
+      var current_peice = board[myX][myY];
+      if (current_peice != null) {
 
+        if (current_peice < 0) {
+          new_board[myX][myY + 1] = current_peice;
+        } else {
+        }
+      }
+    }
+  }
+  return new_board;
+}
 function setup() {
   //setup p5js constants
   createCanvas(600,600);
@@ -68,4 +91,5 @@ function setup() {
 
 function draw() {
   draw_board(board);
+  move_pieces();
 }
