@@ -20,7 +20,7 @@
     <hr>
     <div class="Rombus">
       <p>Below you can prove whever a shape is a Rombus</p>
-      <form name="Rombus" onsubmit="return rombusSubmit()">
+      <form name="Rombus">
         <label for="p1x">Point 1 X:</label>
         <input type="number" id="p1x" name="p1x">
         <label for="p1y">Point 1 Y:</label>
@@ -41,7 +41,7 @@
         <label for="p4y">Point 4 Y:</label>
         <input type="number" id="p4y" name="p4y">
         <br>
-        <input type="submit" value="Submit">
+        <input type="button" value="Submit" onclick="rombusSubmit()">
       </form>
     </div>
   </body>
