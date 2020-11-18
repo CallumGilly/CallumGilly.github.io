@@ -8,8 +8,64 @@ class shapeClass {
       this.points.push([formObject[x].value,formObject[x+1].value]);
     }
     this.lengths = this.calculateLengths();
+    this.rightAngles = this.isRightAngles();
+    this.equalSides = this.isEqualSides();
+    this.shapeType = this.whatShape();
+    this.proof();
   }
+  proof() {
+    var myText = "";
+    if (this.numOfPoints == 4) {
+      myText += "The shape must be a quadrilateral as there are four points";
+      //stringfie points:
+      var points = "";
+      for (var x = 0; x < this.numOfPoints; x++) {
+        if (x == 0) {
+          points += " ";
+        } else if (x + 1 == this.numOfPoints) {
+          points += " and ";
+        } else {
+          points += ", ";
+        }
+        points += ("(" + this.points[x][0] + "," + this.points[x][1] + ")");
+      }
+      myText += "\nThese are:" + points;
 
+      
+
+      document.getElementById('results').value = myText;
+      console.log(myText);
+    }
+  }
+  isRightAngles() {
+    var tempArr = [];
+    //Push start and end points of lines to the tempArr
+    for (var x = 0; x < this.numOfPoints; x++) {
+      var temp = [x];
+      if (x + 1 < this.numOfPoints) {
+        temp.push(x+1);
+      }
+      else {
+        temp.push(0);
+      }
+      if (x + 2 < this.numOfPoints) {
+        temp.push(x + 2);
+      }
+      else {
+        temp.push(1);
+      }
+      tempArr.push(temp);
+    }
+    var flag = false;
+    for (var i = 0; i < tempArr.length; i ++) {
+      var gradient0 = (this.points[tempArr[i][0]][1] - this.points[tempArr[i][1]][1]) / (this.points[tempArr[i][0]][0] - this.points[tempArr[i][1]][0]);
+      var gradient1 = (this.points[tempArr[i][1]][1] - this.points[tempArr[i][2]][1]) / (this.points[tempArr[i][1]][0] - this.points[tempArr[i][2]][0]);
+      if (-1 * (gradient0**-1) == gradient1) {
+        flag = true;
+      }
+    }
+    return flag;
+  }
   calculateLengths() {
     //This function calculates the length of all the lines. This could most likely be more efficiant but I have school and more important stuff than makeing the big O happy
     var tempArr = [];
@@ -41,22 +97,36 @@ class shapeClass {
     }
     return tempArr;
   }
-
-  isRombus() {
-    var flag = true;
-    if (this.numOfPoints == 4) {
-      //Prove Lengths are the same
-      var firstLen = this.lengths[0][2];
-      for (var x = 1; x < 4; x++) {
-        if (this.lengths[x][2] != firstLen) {
-          flag = false;
-        }
+  isEqualSides() {
+    //Calculates whether all sides are equal lengtb
+    var equalSides = true;
+    //Prove Lengths are the same
+    var firstLen = this.lengths[0][2];
+    for (var x = 1; x < 4; x++) {
+      if (this.lengths[x][2] != firstLen) {
+        equalSides = false;
       }
-
-    } else {
-      flag = false;
     }
-    return flag;
+    return equalSides;
+  }
+  whatShape() {
+    //0 = unknow
+    //1 = square
+    //2 = Rectangle
+    //3 = Rombus
+    var type = 0;
+    if (this.rightAngles) {
+      if (this.equalSides) {
+        type = 1;
+      } else {
+        type = 2;
+      }
+    } else {
+      if(this.equalSides) {
+        type = 3;
+      }
+    }
+    return type;
   }
 }
 function rombusSubmit() {
