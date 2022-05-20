@@ -1,10 +1,5 @@
-//Import Turn Points
+import { parse } from '/lib/csvParse.min.js';
 let turnPoints = [];
-let getTextFile = new XMLHttpRequest;
-getTextFile.open("GET", "./TurnPoints.csv", true);
-getTextFile.onreadystatechange = () => {
-    let CSV = getTextFile.responseText;
-    turnPoints = CSV.split(/\r\n|\n/);
-    console.log(turnPoints)
-};
-
+$.get("../TurnPoints.csv", (data, status) => {
+    turnPoints = parse(data);
+})
