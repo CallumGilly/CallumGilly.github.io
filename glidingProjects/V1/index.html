@@ -24,13 +24,15 @@
 	</div>
 	<hr> 
 	<form id="mainForm" onsubmit="return false">
+		<datalist id="turnPoints">
+
+		</datalist>
 		<button type="submit" onCLick="go()">Go</button>
 		<br>
 		<div id"pontSelection1">
 			<label for="point1" id="pointLabel1">Start Point:</label>
-			<select id="point1" name="point1" onchange="turnSet(1)">
-				<option value="null" selected>Please Select a turnpoint</option>
-			</select>
+			<input list="turnPoints" id="point1" name="point1">
+			<button id="pointCheck1" onClick="turnSet(1)">✓</button>
 		</div>
 	</form>
 </body>
