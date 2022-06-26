@@ -59,3 +59,32 @@ function go() {
     document.getElementById(`codeOutput`).value += "var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);";
     document.getElementById(`codeOutput`).value += "map.fitBounds(polygon.getBounds());";
 }
+
+function goMini() {
+    let position = document.forms["subForm"][`markerPoint`].value.slice(-3);
+    
+    //Make lat lang array with positions
+    let LatLngList = ""
+    let row = 1;
+    let rowAsObj = null
+    while (row < turnPoints.length && rowAsObj === null) {
+        if (turnPoints[row][1] == position) {
+            rowAsObj = turnPoints[row];
+        } else {
+            row++;
+        }
+    }
+    let raw = rowAsObj[5];
+    let DMSPropper = raw.split(" ");
+    let latLng = [0,0];
+    latLng[0] = parseInt(DMSPropper[0]) + parseFloat(DMSPropper[1].substring(0,6)/60);
+    if (DMSPropper[1].substring(6,7) == "S") {
+        latLng[0] *= -1;
+    }
+    latLng[1] = parseInt(DMSPropper[2]) + parseFloat(DMSPropper[3].substring(0,6)/60);
+    if (DMSPropper[3].substring(6,7) == "W") {
+        latLng[1] *= -1;
+    }
+    LatLngList = "[" + latLng.toString() + "]";
+    document.getElementById(`markerCodeOutput`).value = `L.marker(${LatLngList}).addTo(map);`;
+}

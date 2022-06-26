@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,34 +11,54 @@
 	<link rel="manifest" href="/site.webmanifest">
 	<title>Weather</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+		integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+		integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 	<script type="module" src="scripts.js"></script>
 	<script src="myFunctions.js"></script>
 </head>
+
 <body>
-	<link rel="stylesheet" href="/navbar.css" type="text/css"></link>
+	<link rel="stylesheet" href="/navbar.css" type="text/css">
+	</link>
 	<div class="navbar">
 		<ul>
 			<li><a href="/index.html">Home</a></li>
 		</ul>
 	</div>
-	<hr> 
-	<form id="mainForm" onsubmit="return false">
-		<datalist id="turnPoints">
+	<hr>
+	<div>
+		<form id="mainForm" onsubmit="return false">
+			<datalist id="turnPoints">
 
-		</datalist>
-		<button type="submit" onCLick="go()">Go</button>
-		<br>
-		<div id"pontSelection1">
-			<label for="point1" id="pointLabel1">Start Point:</label>
-			<input list="turnPoints" id="point1" name="point1">
-			<button id="pointCheck1" onClick="turnSet(1)">✓</button>
-		</div>
-	</form>
-	<h2>Code will appear here:</h2>
-	<textarea readonly="true" id="codeOutput">
+			</datalist>
+			<button type="submit" onCLick="go()">Go</button>
+			<br>
+			<div id"pontSelection1">
+				<label for="point1" id="pointLabel1">Start Point:</label>
+				<input list="turnPoints" id="point1" name="point1">
+				<button id="pointCheck1" onClick="turnSet(1)">✓</button>
+			</div>
+		</form>
+		<h2>Code will appear here:</h2>
+		<textarea readonly="true" id="codeOutput">
 
-	</textarea>
+		</textarea>
+	</div>
+	<hr>
+	<div>
+		<form id="subForm" onsubmit="return false">
+			<button type="submit" onCLick="goMini()">Go</button>
+			<label for="markerPoint" id="markerPointLabel">Point:</label>
+			<input list="turnPoints" id="markerPoint" name="markerPoint">
+		</form
+		<h2>Code will appear here:</h2>
+		<textarea readonly="true" id="markerCodeOutput">
+
+		</textarea>
+	</div>
 </body>
+
 </html>
