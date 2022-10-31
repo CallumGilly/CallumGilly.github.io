@@ -1,45 +1,56 @@
 //Sets the speed in mili seconds between each char;
 let typeSpeed = 200;
 
-//Sets the data to be typed
-let toType = ["$Callum Gilchrist","Computer Science Student and General Nerd"]; //Array of strings at first, then should become and array or reversed arrays
-let currentLine = 0;
-let typed = "";
+//Sets the data to be type 
+let title = "$Callum Gilchrist"; //Title
+let subtitle = "";
+let typedTitle = "";
+let notSkipped = true;
+let stage = 0;
 
-//Makes the data to be typed usable with pop().
-for (var ai = 0; ai < toType.length; ai++) {
-  toType[ai] = toType[ai].split("").reverse();
-}
+//Makes the data to be typedTitle usable with pop() by converting it to an array and reversing it.
+title = title.split("").reverse();
 
-async function typeHeadings() {
+async function typeName() {
   //Ignores timer for single spaces.
-  if (toType[currentLine][toType[currentLine].length - 1] == " ") {
-    typed += toType[currentLine].pop();
+  if (notSkipped) {
+    if (title[title.length - 1] == " ") {
+      typedTitle += title.pop();
+    }
+    typedTitle += title.pop();
+  } else {
+    while (title.length > 0) {
+      typedTitle += title.pop()
+    }
   }
-  typed += toType[currentLine].pop();
-  
-  //Writes to the current line.
-  switch (currentLine) {
-    case 0:
-      $("#NameTitle").text(typed);
-      break;
-    case 1:
-      $("#SubTitle").text(typed);
-      break;
-    default:
-      break;
-  }
+  //Writes to the heading.
+  $("#NameTitle").text(typedTitle);
+ 
 
   //If not at the end of the line, call the function again to print all the next letters.
-  if (toType[currentLine].length !== 0) {
-    setTimeout(typeHeadings, typeSpeed);
+  if (title.length !== 0) {
+    setTimeout(typeName, typeSpeed);
   //Once the end of a line is reached print the next line if there is one.
-  } else if (currentLine + 1 < toType.length){
-      typed = "";
-      currentLine += 1;
-      typeSpeed = 100;
-      setTimeout(typeHeadings, typeSpeed);
+  } else {
+    fadeInPage();
   }
 }
 
-typeHeadings();
+async function fadeInPage() {
+  if (notSkipped) {
+    $("#SubTitle").fadeIn(3000);
+  } else {
+  $("#SubTitle").fadeIn(0);
+  }
+}
+
+//If user presses any key skip the animation
+window.addEventListener("keydown", (event) => {
+  if (event.isComposing || event.keyCode === 229) {
+    return;
+  }
+  // do something
+  notSkipped = false;
+});
+
+typeName();
