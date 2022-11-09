@@ -1,0 +1,45 @@
+.hamburger-menu {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  height: 2.5rem;
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  height: 5px;
+  background: darkgreen;
+  border-radius: 5px;
+  margin: 3px 0px;
+  transform-origin: left;
+  transition: all 0.5s;
+}
+
+.hamburger-menu .top {
+  width: 2.5rem;
+}
+
+.hamburger-menu .middle {
+  width: 1.5rem;
+}
+
+.hamburger-menu .bottom {
+  width: 1.75rem;
+}
+
+.hamburger-menu:hover .top {
+  transform: translateX(1.7rem) rotate(45deg);
+  border-radius: 0px;
+  width: 1.42rem;
+}
+
+.hamburger-menu:hover .middle {
+  width: 2.5rem;
+}
+
+.hamburger-menu:hover .bottom {
+  transform: translateX(1.7rem) rotate(-45deg);
+  border-radius: 0px;
+  width: 1.42rem;
+}

@@ -42,6 +42,12 @@ async function fadeInPage() {
   } else {
   $("#SubTitle").fadeIn(0);
   }
+  $("#nav-placeholder").load("navbar.html");
+  if (notSkipped) {
+    $("#nav-placeholder").fadeIn(3000);
+  } else {
+    $("#nav-placeholder").fadeIn(0);
+  }
 }
 
 //If user presses any key skip the animation
@@ -52,5 +58,4 @@ window.addEventListener("keydown", (event) => {
   // do something
   notSkipped = false;
 });
-
 typeName();
