@@ -37,16 +37,16 @@ async function typeName() {
 }
 
 async function fadeInPage() {
-  if (notSkipped) {
-    $("#SubTitle").fadeIn(3000);
-  } else {
-  $("#SubTitle").fadeIn(0);
-  }
   $("#nav-placeholder").load("navbar.html");
   if (notSkipped) {
+    $("#SubTitle").fadeIn(3000);
     $("#nav-placeholder").fadeIn(3000);
+    $("#spiro").fadeIn(3000);
+    
   } else {
+    $("#SubTitle").fadeIn(0);
     $("#nav-placeholder").fadeIn(0);
+    $("#spiro").fadeIn(0);
   }
 }
 
@@ -58,4 +58,5 @@ window.addEventListener("keydown", (event) => {
   // do something
   notSkipped = false;
 });
+$("#spiro").hide();
 typeName();
