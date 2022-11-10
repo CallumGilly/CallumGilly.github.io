@@ -34,7 +34,7 @@ function draw() {
     if (r >= rMax || r <= 9) {
       rDir *= -1;
       O += ODir;
-      if (O >= r || O <= 0) {
+      if (O >= 40 || O <= 20) {
         ODir *= -1;
       }
     }
