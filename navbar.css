@@ -2,13 +2,13 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
 }
 
 .hamburger-menu .bar {
-  height: 5px;
+  height: 3px;
   background: darkgreen;
   border-radius: 5px;
   margin: 3px 0px;
@@ -17,29 +17,29 @@
 }
 
 .hamburger-menu .top {
-  width: 2.5rem;
+  width: 2rem;
 }
 
 .hamburger-menu .middle {
-  width: 1.5rem;
+  width: 1rem;
 }
 
 .hamburger-menu .bottom {
-  width: 1.75rem;
+  width: 1.25rem;
 }
 
 .hamburger-menu:hover .top {
   transform: translateX(1.7rem) rotate(45deg);
   border-radius: 0px;
-  width: 1.42rem;
+  width: 1.17rem;
 }
 
 .hamburger-menu:hover .middle {
-  width: 2.5rem;
+  width: 2rem;
 }
 
 .hamburger-menu:hover .bottom {
   transform: translateX(1.7rem) rotate(-45deg);
   border-radius: 0px;
-  width: 1.42rem;
+  width: 1.17rem;
 }
