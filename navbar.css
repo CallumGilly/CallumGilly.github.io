@@ -29,9 +29,9 @@
 }
 
 .hamburger-menu:hover .top {
-  transform: translateX(1.7rem) rotate(45deg);
+  transform: translateX(1.2rem) rotate(45deg);
   border-radius: 0px;
-  width: 1.17rem;
+  width: 1.1rem;
 }
 
 .hamburger-menu:hover .middle {
@@ -39,7 +39,7 @@
 }
 
 .hamburger-menu:hover .bottom {
-  transform: translateX(1.7rem) rotate(-45deg);
+  transform: translateX(1.2rem) rotate(-45deg);
   border-radius: 0px;
-  width: 1.17rem;
+  width: 1.1rem;
 }
