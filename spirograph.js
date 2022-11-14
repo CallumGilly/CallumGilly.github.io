@@ -1,51 +1,29 @@
-//Half of these are useless but I do not wish to deal with this bull rn
-let r=10;
-let rDir=1;
-let rEnabled=1;
-let rMax;
-let R=2;
-let RDir=10;
-let REnabled=0;
-let RMax;
-let O=30;
-let ODir = 2.5;
-let OMax;
+//Defines each variable required for spirographhs
+let r;
+let R;
+let O;
 let frame = 0;
-let frameMod = 20;
+let frameMod = 40;
 
 //Runs once at the start and sets environment variable
 function setup() {
+  //R has to stay constant to take up the whole canvas
+  R=(windowWidth/4)+1;
+
+  //P5JS canvas setup
   createCanvas(windowWidth,windowHeight);
-  rMax = 70//windowWidth/8;
-  OMax = windowWidth/4;
-  R=windowWidth/4+1;
-  background(0);
   stroke(0,100,0);
-  frameRate(30);
+  frameRate(frameMod * (2/3));
 }
 
 //Runs ever frame
 function draw() {
   background(0);
+  //Calculate current r and O values and draw the next step of spiro graph
+  r= 9 + Math.abs(60 - (Math.floor(frame / 20) % 120));
+  O= 20 + Math.abs(20 - (Math.floor(frame / 100) % 40));
   for (let t = 0; t < (100 / frameMod) * (frame % frameMod); t+= 0.025) {
     line(x(t),y(t),x(t+0.025),y(t+0.025));
-  }
-  //This does cool maths to make it move, I've changed it so much I no longer know what it does
-  if (frame % frameMod == 0) {
-    //Code in this runs ever 20 frames
-    r +=rDir;
-    if (O == r) {
-      r += rDir;
-    }
-    if (r >= rMax || r <= 9) {
-      rDir *= -1;
-    }
-    if (frame % (frameMod*7) == 0) {
-      O += ODir;
-      if (O >= 40 || O <= 20) {
-        ODir *= -1;
-      }
-    }
   }
   frame++;
 }
