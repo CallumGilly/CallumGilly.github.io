@@ -8,7 +8,7 @@ let frameMod = 40;
 //Runs once at the start and sets environment variable
 function setup() {
   //R has to stay constant to take up the whole canvas
-  R=(windowWidth/4)+1;
+  R=(windowWidth/2)+1;
 
   //P5JS canvas setup
   createCanvas(windowWidth,windowHeight);
@@ -41,5 +41,5 @@ function y( t) {
 //Resize the canvas on window resize
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  R = windowWidth/4 + 1;
+  R = windowWidth/2 + 1;
 }

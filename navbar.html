@@ -2,9 +2,26 @@
 <!-- https://www.w3resource.com/html-css-exercise/html-css-practical-exercises/html-css-practical-exercise-22.php -->
 <!--Hamburger License: https://bit.ly/3GjrtVF-->
 <!-- https://codingislove.com/three-line-navigation-bar/ -->
-<link rel="stylesheet" href="navbar.css">
-<div class="hamburger-menu">
-  <div class="bar top"></div>
-  <div class="bar middle"></div>
-  <div class="bar bottom"></div>
-</div>
+<!-- Sidebar base from: -->
+<!-- https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp -->
+<link rel="stylesheet" href="/navbar.css">
+<nav>
+  <a href="#" id="navCLicker">
+    <div class="hamburger-menu arrow" onclick="openNav()" id="hamburger-menu">
+      <div class="bar top-arrow"></div>
+      <div class="bar middle-arrow"></div>
+      <div class="bar bottom-arrow"></div>
+    </div>
+  </a>
+  <div id="mySidebar" class="sidebar">
+    <a href="#">Home</a>
+    <a href="#" onclick="showProjects()">Projects</a>
+    <ul class="subList" id="projectList">
+      <li><a href="./glidingProjects/V1/index.html">Gliding Utility</a></li>
+      <li><a href="#">Circle Detection</a></li>
+    </ul>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+<script src="/navbar.js"></script>
+

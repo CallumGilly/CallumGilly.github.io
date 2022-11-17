@@ -1,10 +1,12 @@
-.hamburger-menu {
+.hamburger-menu{
+  transition: 0.5s;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
   height: 2rem;
   width: 2rem;
   cursor: pointer;
+  z-index: 6;
 }
 
 .hamburger-menu .bar {
@@ -16,30 +18,102 @@
   transition: all 0.5s;
 }
 
-.hamburger-menu .top {
+.spiroFrame {
+  transition: 0.5s;
+}
+
+.hamburger-menu .top-arrow{
   width: 2rem;
 }
 
-.hamburger-menu .middle {
+.hamburger-menu .middle-arrow{
   width: 1rem;
 }
 
-.hamburger-menu .bottom {
+.hamburger-menu .bottom-arrow{
   width: 1.25rem;
 }
 
-.hamburger-menu:hover .top {
+.hamburger-menu:hover .top-arrow{
   transform: translateX(1.2rem) rotate(45deg);
   border-radius: 0px;
   width: 1.1rem;
 }
 
-.hamburger-menu:hover .middle {
+.hamburger-menu:hover .middle-arrow{
   width: 2rem;
 }
 
-.hamburger-menu:hover .bottom {
+.hamburger-menu:hover .bottom-arrow{
   transform: translateX(1.2rem) rotate(-45deg);
   border-radius: 0px;
   width: 1.1rem;
 }
+
+.hamburger-menu .top-cross{
+  width: 2rem;
+  transform: rotate(45deg);
+}
+
+.hamburger-menu .middle-cross{
+  width: 0rem;
+  visibility: hidden;
+}
+
+.hamburger-menu .bottom-cross{
+  width: 2rem;
+  transform: rotate(-45deg);
+}
+
+/* Start of w3School CSS */
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: -1; /* Stay on top */
+  top: 0;
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 40px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.subList {
+  font-size: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/* End of w3School CSS */
