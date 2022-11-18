@@ -5,11 +5,14 @@ function turnSet (point) {
     if (point === pointCount) {
         pointCount++;
         $(`#pointRemove${point}`).remove();        
+        $("#mainForm").append(`<div id="pontSelection${pointCount}" class="pointGroup">`);
+        $(`#pontSelection${pointCount}`).append(`<label for="point${pointCount}" id="pointLabel${pointCount}">Point ${pointCount - 1}: </label`);
+        $(`#pontSelection${pointCount}`).append(`<input list="turnPoints" id="point${pointCount}" name="point${pointCount}">`);
+        $(`#pontSelection${pointCount}`).append(`<button id="pointCheck${pointCount}" onClick="turnSet(${pointCount})">✓</button>`);
+        $(`#goButton`).remove();
         $("#mainForm").append(`<br id="pointBreak${pointCount}">`)
-        $("#mainForm").append(`<label for="point${pointCount}" id="pointLabel${pointCount}">Point ${pointCount - 1}:</label`);
-        $("#mainForm").append(`<input list="turnPoints" id="point${pointCount}" name="point${pointCount}">`);
-        $("#mainForm").append(`<button id="pointCheck${pointCount}" onClick="turnSet(${pointCount})">✓</button>`);
-        $("#mainForm").append(`<button onclick="remove(${pointCount})" id="pointRemove${pointCount}">-</button>`);
+        $(`#mainForm`).append(`<button onclick="remove(${pointCount})" id="pointRemove${pointCount}" class="removeBtn">Remove Last</button>`);
+        $("#mainForm").append(`<button type="submit" onCLick="go()"class="formItem" id="goButton">Go</button>`)
     }
 }
 
@@ -20,7 +23,10 @@ function remove(point) {
     $(`#pointCheck${point}`).remove();
     $(`#pointBreak${point}`).remove();
     pointCount--;
-    $("#mainForm").append(`<button onclick="remove(${pointCount})" id="pointRemove${pointCount}">-</button>`);
+        $(`#goButton`).remove();
+        $(`#pointRemove${pointCount}`).remove();
+        $(`#mainForm`).append(`<button onclick="remove(${pointCount})" id="pointRemove${pointCount}" class="removeBtn">Remove Last</button>`);
+        $("#mainForm").append(`<button type="submit" onCLick="go()"class="formItem" id="goButton">Go</button>`)
 }
 
 function go() {

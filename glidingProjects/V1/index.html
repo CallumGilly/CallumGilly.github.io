@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="dark">
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -13,46 +14,59 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
 		integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
-		integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="./style.css">
 	<script type="module" src="scripts.js"></script>
 	<script src="myFunctions.js"></script>
 </head>
 
 <body>
-	<div id="nav-placeholder" style="display: none;">
+	<div id="nav-placeholder">
 	</div>
-	<div>
-		<form id="mainForm" onsubmit="return false">
-			<datalist id="turnPoints">
+	<div id="main">
+		<div class="program">
+			<h1 class="consoleStyle">Turn point mapper</h1>
+			<p class="consoleStyle">
+				Given a list of gliding turn points, generates a browser console command. This command generates a polygon which traces the flight path. 
+				This can be pasted into any map which uses <a href="https://leafletjs.com">Leaflet</a> but is intended for use with <a href="https://rasp.stratus.org.uk/index.php/rasptable-desktop">RASP</a>.
+				The primary intention of this is for use when RASP is being used as a data source in gliding briefings.
+			<p>
+			<form id="mainForm" onsubmit="return false">
+				<datalist id="turnPoints">
 
-			</datalist>
-			<button type="submit" onCLick="go()">Go</button>
-			<br>
-			<div id"pontSelection1">
-				<label for="point1" id="pointLabel1">Start Point:</label>
-				<input list="turnPoints" id="point1" name="point1">
-				<button id="pointCheck1" onClick="turnSet(1)">✓</button>
-			</div>
-		</form>
-		<h2>Code will appear here:</h2>
-		<textarea readonly="true" id="codeOutput">
+				</datalist>
+				<br>
+				<div id="pontSelection1" class="pointGroup">
+					<label for="point1" id="pointLabel0">Point 0:</label>
+					<input list="turnPoints" id="point1" name="point1">
+					<button id="pointCheck1" onClick="turnSet(1)">✓</button>
+				</div>
+				<br id="pointBreak1">
+				<button onclick="" id="pointRemove1" class="removeBtn" disabled="true">Remove Last</button>
+				<button type="submit" onCLick="go()"class="formItem" id="goButton">Go</button>
+			</form>
+			<h2>Code will appear here:</h2>
+			<textarea readonly="true" id="codeOutput">
 
-		</textarea>
+			</textarea>
+		</div>
+		<hr>
+		<div class="program">
+			<h1 class="consoleStyle">Turn point Mark</h1>
+			<p class="consoleStyle">
+				Works similarly to Turn Point Mapper but makes a single point on the map
+			<p>
+			<form id="subForm" onsubmit="return false">
+				<label for="markerPoint" id="markerPointLabel">Point:</label>
+				<input list="turnPoints" id="markerPoint" name="markerPoint">
+				<button type="submit" onCLick="goMini()">Go</button>
+			</form>
+			<h2>Code will appear here:</h2>
+			<textarea readonly="true" id="markerCodeOutput">
+
+			</textarea>
+		</div>
 	</div>
-	<hr>
-	<div>
-		<form id="subForm" onsubmit="return false">
-			<button type="submit" onCLick="goMini()">Go</button>
-			<label for="markerPoint" id="markerPointLabel">Point:</label>
-			<input list="turnPoints" id="markerPoint" name="markerPoint">
-		</form
-		<h2>Code will appear here:</h2>
-		<textarea readonly="true" id="markerCodeOutput">
 
-		</textarea>
-	</div>
 </body>
 
 </html>
