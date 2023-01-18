@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Callum Gilchrist</title>
+    
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/split.css">    
+  </head>
+  <body>
+    <div id="nav-placeholder">
+
+    </div>
+    <div id="main" class="consoleStyle">
+      <h1>IGC Helpers</h1>
+      <div id="converter">
+        <p>Base 36 is used in the filenames of IGF files, it can be converted to base 10 (decimal) here</p>
+        <div class="split left">
+          <form>
+            <label for="b36in">Base 36 String:</label>
+            <input id="b36in" oninput="updateB36()">
+          </form>
+          <form>
+            <label for="b10in">Base 10 String:</label>
+            <input id="b10in" oninput="updateB10()">
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="indexScripts.js"></script>
+  </body>
+</html>
